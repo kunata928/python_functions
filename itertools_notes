@@ -1,0 +1,51 @@
+Модуль itertools - сборник полезных итераторов.
+
+itertools.count(start=0, step=1) - бесконечная арифметическая прогрессия
+                                    с первым членом start и шагом step.
+
+itertools.cycle(iterable) - возвращает по одному значению из последовательности,
+                            повторенной бесконечное число раз.
+
+itertools.repeat(elem, n=Inf) - повторяет elem n раз.
+
+itertools.accumulate(iterable) - аккумулирует суммы.
+            accumulate([1,2,3,4,5]) --> 1 3 6 10 15
+
+itertools.permutations(iterable, r=None) - перестановки длиной r из iterable.
+
+itertools.product(*iterables, repeat=1) - аналог вложенных циклов.
+                   product('ABCD', 'xy') --> Ax Ay Bx By Cx Cy Dx Dy
+
+itertools.combinations(iterable, [r]) - комбинации длиной r из iterable
+                                        без повторяющихся элементов.
+                                        combinations('ABCD', 2) --> AB AC AD BC BD CD
+
+itertools.combinations_with_replacement(iterable, r) - комбинации длиной r из iterable
+                                                        с повторяющимися элементами.
+            combinations_with_replacement('ABCD', 2) --> AA AB AC AD BB BC BD CC CD DD
+
+itertools.dropwhile(func, iterable) - элементы iterable, начиная с первого,
+                                        для которого func вернула ложь.
+                          dropwhile(lambda x: x < 5, [1,4,6,4,1]) --> 6 4 1
+
+itertools.filterfalse(func, iterable) - все элементы, для которых func возвращает ложь.
+
+itertools.takewhile(func, iterable) - элементы до тех пор, пока func возвращает истину.
+                                          takewhile(lambda x: x<5, [1,4,6,4,1]) --> 1 4
+
+itertools.islice(iterable[, start], stop[, step]) - итератор, состоящий из среза.
+
+itertools.chain(*iterables) - возвращает по одному элементу из первого итератора,
+                        потом из второго, до тех пор, пока итераторы не кончатся.
+
+>>> itertools.product('ABCD', 'ABCD') --> AA AB AC AD BA BB BC BD CA CB CC CD DA DB DC DD 
+    # полное перемножение с дублями
+    
+>>> itertools.permutations('ABCD',2) --> AB AC AD BA BC BD CA CB CD DA DB DC 
+    # полное перемножение без дублей 
+    
+>>> itertools.combinations_with_replacement('ABCD', 2) --> AA AB AC AD BB BC BD CC CD DD 
+    # без "зеркальных пар" с дублями
+    
+>>> itertools.combinations('ABCD', 2) --> AB AC AD BC BD CD 
+    # без "зеркальных пар" без дублей
