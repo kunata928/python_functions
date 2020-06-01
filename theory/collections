@@ -1,0 +1,3 @@
+https://pythonworld.ru/moduli/modul-collections.html
+for word in ['spam', 'egg', 'spam', 'counter', 'counter', 'counter']:
+...     c[word] += 1
